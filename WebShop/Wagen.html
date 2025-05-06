@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warenkorb</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet" />
+
+    <!-- Eigene Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .warenkorb-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        border-radius: 5px;
+      }
+
+      .warenkorb-item img {
+        width: 100px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .item-details {
+        flex-grow: 1;
+      }
+
+      .remove-item {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .warenkorb-summary {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        text-align: right;
+      }
+
+      .checkout-button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      /* Debug-Bereich */
+      .debug-section {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .debug-section pre {
+        white-space: pre-wrap;
+        word-break: break-all;
+        background-color: #f1f1f1;
+        padding: 10px;
+        border-radius: 3px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img class="navbar-logo" src="dctrans.png" alt="Logo" />
+        <ul>
+          <li><a href="home.html">Startseite</a></li>
+          <li><a href="MenWomen.html">Ready-to-wear</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <a class="navbar-bag" href="Wagen.html"
+            ><img src="shopping-bag.png" alt="Shopping Bag"
+          /></a>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="page-title">Dein Warenkorb</h1>
+      <div class="warenkorb-container" id="warenkorb-container">
+        <!-- Produkte werden hier dynamisch eingefügt -->
+        <p style="color: white; text-align: center">Lade Warenkorb...</p>
+      </div>
+
+      <!-- Debug-Bereich -->
+      <div class="debug-section">
+        <button onclick="clearCart()">Warenkorb leeren</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mein Webshop. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+      // Debug-Funktionen
+      function showDebugInfo() {
+        const debug = document.getElementById("debug-output");
+        try {
+          const cart = localStorage.getItem("cart");
+          debug.textContent = cart || "Warenkorb ist leer oder nicht vorhanden";
+        } catch (e) {
+          debug.textContent = "Fehler beim Lesen des Warenkorbs: " + e.message;
+        }
+      }
+
+      function clearCart() {
+        localStorage.removeItem("cart");
+        alert("Warenkorb wurde geleert");
+        showDebugInfo();
+        displayCart();
+      }
+
+      // Funktion, um den Warenkorb anzuzeigen
+      function displayCart() {
+        const container = document.getElementById("warenkorb-container");
+        container.innerHTML = ""; // Vorherigen Inhalt löschen
+
+        try {
+          // Versuchen, den Warenkorb aus localStorage zu laden
+          const cartData = localStorage.getItem("cart");
+          if (!cartData) {
+            container.innerHTML =
+              "<p style='color: white; text-align: center;'>Dein Warenkorb ist leer.</p>";
+            return;
+          }
+
+          const cart = JSON.parse(cartData);
+          if (!Array.isArray(cart) || cart.length === 0) {
+            container.innerHTML =
+              "<p style='color: white; text-align: center;'>Dein Warenkorb ist leer.</p>";
+            return;
+          }
+
+          let total = 0;
+
+          // Erstellen von Produktelementen
+          cart.forEach((item, index) => {
+            // Preis als Zahl umwandeln für die Berechnung
+            let price = 0;
+            try {
+              price = parseFloat(
+                item.price.replace(/[^\d,]/g, "").replace(",", ".")
+              );
+            } catch (e) {
+              console.error("Fehler beim Parsen des Preises:", e);
+            }
+            total += price;
+
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("warenkorb-item");
+            productDiv.innerHTML = `
+                      <img src="${item.image}" alt="${
+              item.name
+            }" onerror="this.src='placeholder.jpg'">
+                      <div class="item-details">
+                          <h2>${item.name}</h2>
+                          <p>Größe: ${item.size || "N/A"}</p>
+                          <p>Preis: ${item.price}</p>
+                      </div>
+                      <button class="remove-item" onclick="removeFromCart(${index})">Entfernen</button>
+                  `;
+            container.appendChild(productDiv);
+          });
+
+          // Gesamtsumme anzeigen
+          const summaryDiv = document.createElement("div");
+          summaryDiv.classList.add("warenkorb-summary");
+          summaryDiv.innerHTML = `
+                  <h2 style="color: white;">Gesamtsumme: ${total
+                    .toFixed(2)
+                    .replace(".", ",")} €</h2>
+                  <button class="checkout-button">Zur Kasse</button>
+              `;
+          container.appendChild(summaryDiv);
+        } catch (error) {
+          console.error("Fehler beim Anzeigen des Warenkorbs:", error);
+          container.innerHTML = `<p style='color: white; text-align: center;'>Fehler beim Laden des Warenkorbs: ${error.message}</p>`;
+        }
+      }
+
+      // Funktion, um ein Produkt aus dem Warenkorb zu entfernen
+      function removeFromCart(index) {
+        try {
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          displayCart();
+          showDebugInfo();
+        } catch (error) {
+          console.error("Fehler beim Entfernen aus dem Warenkorb:", error);
+          alert("Fehler beim Entfernen des Produkts: " + error.message);
+        }
+      }
+
+      // Warenkorb und Debug-Info beim Laden der Seite anzeigen
+      document.addEventListener("DOMContentLoaded", function () {
+        displayCart();
+        showDebugInfo();
+      });
+    </script>
+  </body>
+</html>

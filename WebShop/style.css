@@ -1,0 +1,684 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #1e3025;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 15px 0;
+}
+
+.navbar {
+  background-color: rgb(255, 255, 255);
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Zentriert das Nav */
+  align-items: center;
+  max-height: 150px;
+}
+
+.navbar-logo {
+  width: 140px; /* Größe des Logos anpassen */
+}
+
+.navbar-bag {
+  position: absolute; /* Positioniert das Shopping-Bag unabhängig */
+  right: 50px; /* Abstand vom rechten Rand */
+  top: 5%; /* Vertikale Zentrierung */
+}
+.navbar-bag img {
+  max-width: 50px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  font-size: 1.9rem; /* Größere Schriftgröße für bessere Lesbarkeit */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: 400;
+  padding: 10px 15px;
+  border-radius: 5px; /* Ecken abrunden */
+  transition: background-color 0.3s ease;
+}
+
+.collection-container img {
+  width: 100%;
+  margin-left: 0px;
+  display: block;
+  position: relative;
+}
+
+.collection-container h1 {
+  position: absolute;
+  bottom: 275px;
+  left: 60px;
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+main {
+  padding: 20px;
+}
+
+.collection-container:hover {
+  transform: scale(1.006);
+  transition: transform 0.3s ease;
+}
+
+#beliebte-produkte {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Einheitliches Design für alle Produkte */
+.produkt-container {
+  display: grid; /* Verwende Grid-Layout */
+  grid-template-columns: repeat(4, 1fr); /* Vier Spalten */
+  gap: 0px; /* Abstand zwischen den Produkten */
+  padding: 0spx;
+  width: 100%; /* Nimmt die gesamte Breite ein */
+  box-sizing: border-box; /* Bezieht Padding in die Breite ein */
+}
+
+.produkt {
+  border: 1px solid #ddd; /* Rahmen um jedes Produkt */
+  border-radius: 0px; /* Abgerundete Ecken */
+  padding: 100px;
+  text-align: center;
+  background-color: #ffffff; /* Weißer Hintergrund */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.product-image img {
+  max-width: 100%; /* Bild passt sich der Breite an */
+  height: auto;
+  width: 500px; /* Größe der Bilder anpassen */
+  border-radius: 5px; /* Abgerundete Ecken für Bilder */
+  margin-bottom: 15px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+a {
+  display: grid;
+}
+
+.produkt img {
+  max-width: 100%; /* Bild passt sich der Breite an */
+  height: auto;
+  border-radius: 5px; /* Abgerundete Ecken für Bilder */
+  margin-bottom: 15px;
+}
+
+.produkt h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.produkt p {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+.produkt button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.produkt button:hover {
+  background-color: #555;
+}
+
+.produkt:hover {
+  transform: scale(1.05); /* Vergrößert das Produkt leicht beim Hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Schatten beim Hover */
+}
+
+.product-image img {
+  display: flex;
+  justify-content: center; /* Zentriert das Bild horizontal */
+  align-items: center; /* Zentriert das Bild vertikal (falls nötig) */
+  height: 100%; /* Optional: Höhe des Containers */
+  margin: 20px 0; /* Optional: Abstand oben und unten */
+}
+
+.dieselleather {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+/* Produkt-Details */
+#product-detail {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.margiela-shoes {
+  border-color: #ff0000;
+  border-width: 1;
+}
+#newsletter {
+  margin-top: 40px;
+  color: white;
+}
+
+#newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#newsletter input {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+#newsletter button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.kontakt-footer {
+  margin: 20px 0;
+}
+
+#kontakt {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#kontakt form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#kontakt input,
+#kontakt textarea {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+#kontakt button {
+  padding: 10px 20px;
+  font-size: 1re;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#kontakt .kontakt-info {
+  margin-top: 30px;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.bilder-sektion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 60px auto;
+  max-width: 1300px;
+  transition: transform 0.6s ease;
+  color: white;
+  position: relative;
+}
+
+.bildFrau img,
+.bildMann img {
+  width: 1000px;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.bildMann:hover {
+  transform: scale(1.006);
+}
+
+.bildFrau:hover {
+  transform: scale(1.006);
+}
+
+.trenner {
+  width: 0.5px; /* extrem dünn */
+  height: 25%;
+  background-color: #ff0000;
+}
+
+.bildFrau h1 {
+  position: absolute;
+  bottom: 275px;
+  left: 60px;
+  color: white;
+  font-size: 24px;
+}
+
+.bildMann h1 {
+  position: absolute;
+  bottom: 115px;
+  right: 60px;
+  color: white;
+  font-size: 24px;
+}
+
+.page-title {
+  text-align: center;
+  color: white;
+  margin: 20px 0;
+}
+
+.warenkorb-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.warenkorb-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.warenkorb-item img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.remove-item {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.warenkorb-summary {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.checkout-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .ham-menu {
+    display: block; /* Ensure the hamburger menu is visible */
+  }
+
+  .navbar {
+    background-color: rgb(255, 255, 255);
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Zentriert das Nav */
+    align-items: center;
+
+    max-height: 10px;
+  }
+
+  .navbar-logo {
+    width: 140px; /* Größe des Logos anpassen */
+  }
+
+  .navbar-bag {
+    position: absolute; /* Positioniert das Shopping-Bag unabhängig */
+    right: 50px; /* Abstand vom rechten Rand */
+    top: 5%; /* Vertikale Zentrierung */
+  }
+  .navbar-bag img {
+    max-width: 5px;
+  }
+
+  nav ul {
+    display: none; /* Hides the links */
+  }
+
+  /* Hamburger Menü */
+  .ham-menu {
+    height: 50px;
+    width: 40px;
+    position: absolute;
+    left: 2.5%; /* Positioniert es horizontal in der Mitte */
+    transform: translateX(
+      -50%
+    ); /* Zentriert es horizontal in Bezug zur Navbar */
+    top: 6%; /* Vertikal zentriert */
+    transform: translate(
+      -50%,
+      -50%
+    ); /* Sorgt dafür, dass es sowohl vertikal als auch horizontal in der Mitte bleibt */
+    cursor: pointer;
+    z-index: 9999; /* Stellt sicher, dass das Hamburger-Menü im Vordergrund bleibt */
+    x: 9999; /* Stellt sicher, dass das Hamburger-Menü im Vordergrund bleibt */
+    font-family: "Futura PT", sans-serif; /* Schriftart hinzufügen */
+  }
+
+  /* Die drei Striche des Hamburger Menüs */
+  .ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: black; /* Farbe der Striche (schwarz) */
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Zentriert die Striche */
+    transition: 0.3s ease; /* Sanfte Übergänge für das Aktivieren */
+    font-family: "Futura PT", sans-serif; /* Schriftart hinzufügen */
+  }
+
+  /* Position der Striche */
+  .ham-menu span:nth-child(1) {
+    top: 25%;
+  }
+
+  .ham-menu span:nth-child(3) {
+    top: 75%;
+  }
+
+  /* Wenn das Hamburger-Menü aktiv ist */
+  .ham-menu.active span {
+    background-color: rgb(0, 0, 0); /* Rot, wenn aktiv */
+  }
+
+  .ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg); /* Drehung des ersten Striches */
+  }
+
+  .ham-menu.active span:nth-child(2) {
+    opacity: 0; /* Versteckt den mittleren Strich */
+  }
+
+  .ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg); /* Drehung des dritten Striches */
+  }
+
+  /* Off-Screen Menü */
+  .off-screen-menu {
+    background-color: rgb(255, 255, 255); /* Hintergrundfarbe */
+    height: 100vh;
+    width: 100%;
+    max-width: 450px; /* Breite des Menüs */
+    position: absolute;
+    top: 0;
+    left: -450px; /* Menü startet außerhalb des Bildschirms */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 3rem;
+    transition: 0.3s ease; /* Übergangseffekt */
+    z-index: 9998; /* Menü ist unterhalb des Hamburger-Menüs */
+  }
+
+  /* Wenn das Menü aktiv ist, wird es sichtbar */
+  .off-screen-menu.active {
+    left: 0; /* Menü bewegt sich in den sichtbaren Bereich */
+  }
+
+  /* Links im Off-Screen-Menü */
+  .off-screen-menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .off-screen-menu ul li {
+    margin: 20px 0;
+  }
+
+  .off-screen-menu ul li a {
+    color: rgb(0, 0, 0); /* Farbe der Links */
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+/* Responsive Design für mobile Geräte */
+
+@media (max-width: 600px) {
+  header {
+    background-color: #ffffff;
+    color: white;
+    padding: 15px 0;
+  }
+
+  .produkt-container {
+    grid-template-columns: repeat(2, 1fr); /* Zwei Spalten für mobile Ansicht */
+    padding: 0px;
+    margin-left: 0px;
+  }
+
+  .ham-menu {
+    display: block; /* Ensure the hamburger menu is visible */
+  }
+
+  .navbar {
+    min-width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Zentriert das Nav */
+    align-items: center;
+    width: 100%; /* Nimmt 100% der Breite des Elternelements ein */
+    box-sizing: border-box; /* Bezieht Padding und Border in die Breite ein */
+    position: relative; /* Damit es sich über die ganze Breite erstreckt */
+  }
+
+  .navbar-logo {
+    width: 140px; /* Größe des Logos anpassen */
+  }
+
+  .navbar-bag {
+    position: absolute; /* Positioniert das Shopping-Bag unabhängig */
+    right: 50px; /* Abstand vom rechten Rand */
+    top: 5%; /* Vertikale Zentrierung */
+  }
+  .navbar-bag img {
+    max-width: 5px;
+  }
+
+  nav ul {
+    display: none; /* Hides the links */
+  }
+
+  /* Hamburger Menü */
+  .ham-menu {
+    height: 50px;
+    width: 40px;
+    position: absolute;
+    left: 2.5%; /* Positioniert es horizontal in der Mitte */
+    transform: translateX(
+      -50%
+    ); /* Zentriert es horizontal in Bezug zur Navbar */
+    top: 6%; /* Vertikal zentriert */
+    transform: translate(
+      -50%,
+      -50%
+    ); /* Sorgt dafür, dass es sowohl vertikal als auch horizontal in der Mitte bleibt */
+    cursor: pointer;
+    z-index: 9999; /* Stellt sicher, dass das Hamburger-Menü im Vordergrund bleibt */
+    x: 9999; /* Stellt sicher, dass das Hamburger-Menü im Vordergrund bleibt */
+    font-family: "Futura PT", sans-serif; /* Schriftart hinzufügen */
+  }
+
+  /* Die drei Striche des Hamburger Menüs */
+  .ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: black; /* Farbe der Striche (schwarz) */
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Zentriert die Striche */
+    transition: 0.3s ease; /* Sanfte Übergänge für das Aktivieren */
+    font-family: "Futura PT", sans-serif; /* Schriftart hinzufügen */
+  }
+
+  /* Position der Striche */
+  .ham-menu span:nth-child(1) {
+    top: 25%;
+  }
+
+  .ham-menu span:nth-child(3) {
+    top: 75%;
+  }
+
+  /* Wenn das Hamburger-Menü aktiv ist */
+  .ham-menu.active span {
+    background-color: rgb(0, 0, 0); /* Rot, wenn aktiv */
+  }
+
+  .ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg); /* Drehung des ersten Striches */
+  }
+
+  .ham-menu.active span:nth-child(2) {
+    opacity: 0; /* Versteckt den mittleren Strich */
+  }
+
+  .ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg); /* Drehung des dritten Striches */
+  }
+
+  /* Off-Screen Menü */
+  .off-screen-menu {
+    background-color: rgb(255, 255, 255); /* Hintergrundfarbe */
+    height: 100vh;
+    width: 100%;
+    max-width: 450px; /* Breite des Menüs */
+    position: absolute;
+    top: 0;
+    left: -450px; /* Menü startet außerhalb des Bildschirms */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 3rem;
+    transition: 0.3s ease; /* Übergangseffekt */
+    z-index: 9998; /* Menü ist unterhalb des Hamburger-Menüs */
+  }
+
+  /* Wenn das Menü aktiv ist, wird es sichtbar */
+  .off-screen-menu.active {
+    left: 0; /* Menü bewegt sich in den sichtbaren Bereich */
+  }
+
+  /* Links im Off-Screen-Menü */
+  .off-screen-menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .off-screen-menu ul li {
+    margin: 20px 0;
+  }
+
+  .off-screen-menu ul li a {
+    color: rgb(0, 0, 0); /* Farbe der Links */
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .collection-container img {
+    width: 200%;
+    margin-left: 0px;
+    display: block;
+    position: relative;
+  }
+}

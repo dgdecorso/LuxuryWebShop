@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mein Webshop</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet" />
+
+    <style>
+      * {
+        font-family: "Futura PT", sans-serif;
+        font-weight: 5; /* Medium Gewicht */
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <img class="navbar-logo" src="dctrans.png" />
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="MenWomen.html">Ready-to-wear</a></li>
+          <li><a href="kontakt.html">Contact</a></li>
+          <a class="navbar-bag" href="Wagen.html"
+            ><img src="shopping-bag.png" alt="Shopping Bag"
+          /></a>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="bilder-sektion">
+        <div class="bildFrau-wrapper">
+          <div class="bildFrau">
+            <a href="Womenswear.html"
+              ><img
+                src="Bilder/DiaryArticleSingle_Gucci-ART-OF-SILK-Mar25-SME-25002-0040-010-07-QC-R300_001_Default.jpg"
+                alt="Bild 1"
+            /></a>
+          </div>
+          <h1 class="label-frau">Damen</h1>
+        </div>
+
+        <div class="bildMann-wrapper">
+          <div class="bildMann">
+            <a href="Menswear.html">
+              <img
+                src="Bilder/DiaryArticleSingle_Gucci-SS25-Jan25-1-9-0474-14-TU-F_001_Default.jpg"
+                alt="Bild 2"
+            /></a>
+          </div>
+          <h1 class="label-mann">Herren</h1>
+        </div>
+      </section>
+    </main>
+
+    <section id="newsletter">
+      <h2>Activate Newsletter</h2>
+      <form action="#" method="post">
+          <label for="email">Your E-Mail-Adress:</label>
+          <input type="email" id="email" name="email" required>
+          <button type="submit">Subsribe</button>
+      </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 MY Webshop - All Rights Reserved</p>
+</footer>
+</html>

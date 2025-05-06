@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produktseite</title>
+
+    <!-- Verknüpfen des externen CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet" />
+
+    <style>
+      * {
+        font-family: "Futura PT", sans-serif;
+        font-weight: 5; /* Medium Gewicht */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img class="navbar-logo" src="dctrans.png" />
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="MenWomen.html">Ready-to-wear</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <a class="navbar-bag" href="Wagen.html"
+            ><img src="shopping-bag.png" alt="Shopping Bag"
+          /></a>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="product-detail">
+        <div class="product-image">
+          <img
+            src="Bilder/margielajack.jpg"
+            alt="Produktbild"
+            id="main-product-image"
+          />
+        </div>
+        <div class="product-info">
+          <h1>Black Blazer</h1>
+          <p class="price">Preis: 849,99 €</p>
+          <p class="description">
+            Dieser elegante schwarze Blazer von Maison Margiela ist aus
+            hochwertigem Material gefertigt und bietet einen abstrakten Schnitt.
+          </p>
+
+          <h3>Verfuegbare Groessen:</h3>
+          <div class="size-options">
+            <label for="size">Grosse auswaehlen:</label>
+            <select id="size" name="size">
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="l">L</option>
+              <option value="xl">XL</option>
+            </select>
+          </div>
+
+          <p class="availability">Verfuegbarkeit: Auf Lager</p>
+
+          <button class="add-to-cart" onclick="addToCart()">
+            In den Warenkorb
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mein Webshop - Alle Rechte vorbehalten</p>
+    </footer>
+
+    <script>
+      // Funktion zum Hinzufügen des Produkts zum Warenkorb
+      function addToCart() {
+        const size = document.getElementById("size").value; // Auswahl der Größe
+        const product = {
+          name: "Beige High Top Heels",
+          price: "849,99 €",
+          size: size,
+          image: document.getElementById("main-product-image").src,
+        };
+
+        // Speichern des Produkts im Local Storage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Produkt zum Warenkorb hinzugefügt!");
+      }
+    </script>
+  </body>
+</html>
